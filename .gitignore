@@ -77,3 +77,4 @@ deploy_heroku.sh
 wkhtmltox/*
 .idea/workspace.xml
 .idea/workspace.xml
+/db.sqlite3
