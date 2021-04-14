@@ -102,6 +102,12 @@ class Accessory(models.Model):
     profile = models.ForeignKey(Profile, on_delete=models.PROTECT)
 
 
+class Complement(models.Model):
+    name = models.CharField(unique=True, max_length=255)
+    is_sqr_mtrs = models.BooleanField(default=False)
+    is_quantified = models.BooleanField(default=False)
+
+
 class Material(models.Model):
     installation_area = models.DecimalField(max_digits=12, decimal_places=6)
     installation_area_wasted = models.DecimalField(max_digits=12, decimal_places=6)
@@ -110,6 +116,8 @@ class Material(models.Model):
     area_check = models.DecimalField(max_digits=12, decimal_places=6)
     profile_price = models.DecimalField(max_digits=19, decimal_places=2)
     profile_price_in_usd = models.BooleanField(default=True)
+    ironwork_price = models.DecimalField(max_digits=19, decimal_places=2, null=True)
+    ironwork_comments = models.CharField(max_length=255, null=True)
     profile = models.ForeignKey(Profile, on_delete=models.PROTECT)
     installation = models.ForeignKey(TInstallation, on_delete=models.PROTECT)
     color = models.ForeignKey(TColor, on_delete=models.PROTECT)
@@ -131,6 +139,13 @@ class FrameMaterial(models.Model):
     units_closeup = models.IntegerField()
     frame_price = models.DecimalField(max_digits=19, decimal_places=2)
     frame = models.ForeignKey(Frame, on_delete=models.PROTECT)
+    material = models.ForeignKey(Material, on_delete=models.PROTECT)
+
+
+class ComplementMaterial(models.Model):
+    price = models.DecimalField(max_digits=19, decimal_places=2)
+    quantity = models.IntegerField()
+    complement = models.ForeignKey(Complement, on_delete=models.PROTECT)
     material = models.ForeignKey(Material, on_delete=models.PROTECT)
 
 
