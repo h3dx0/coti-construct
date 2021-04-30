@@ -88,7 +88,7 @@ DATABASES = {
     }
 }
 
-HEROKU_SERVER = False
+HEROKU_SERVER = True
 
 if HEROKU_SERVER:
     DATABASES['default']['ENGINE'] = 'django.db.backends.postgresql',
