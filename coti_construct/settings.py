@@ -25,7 +25,7 @@ SECRET_KEY = 'az&%zg42!%(hd7)ni@#*#udg$#7o))m8=7d4)-dx^-1r9edx@m'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['secure-fjord-18067.herokuapp.com']
 
 
 # Application definition
