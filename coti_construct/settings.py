@@ -88,6 +88,16 @@ DATABASES = {
     }
 }
 
+HEROKU_SERVER = True
+
+if HEROKU_SERVER:
+    DATABASES['default']['ENGINE'] = 'django.db.backends.postgresql',
+    DATABASES['default']['HOST'] = 'ec2-52-21-252-142.compute-1.amazonaws.com'
+    DATABASES['default']['NAME'] = 'dojaa2lgs6ui9'
+    DATABASES['default']['USER'] = 'qvbewweuaherbc'
+    DATABASES['default']['PASSWORD'] = 'e8305a89023e74c2abc288ee0fe37a6ead757615dcc7048cc0ce7abb0c09d0e0'
+    DATABASES['default']['PORT'] = 5432
+
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
