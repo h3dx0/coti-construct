@@ -1,7 +1,13 @@
 
 from rest_framework import serializers
 
-from coti.models import TColor, Accessory, Complement
+from coti.models import TColor, Accessory, Complement, TInstallation
+
+
+class TInstallationSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = TInstallation
+        fields = '__all__'
 
 
 class TColorSerializer(serializers.ModelSerializer):

@@ -21,5 +21,5 @@ from users.views import CustomAuthToken
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api-token-auth/', CustomAuthToken.as_view()),
-    path('coti/', include('coti.urls', namespace='coti')),
+    path('api/', include('coti.urls', namespace='coti')),
 ]
