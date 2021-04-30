@@ -11,6 +11,7 @@ urlpatterns = [
     path('clients/', views.ClientListCreate.as_view(), name='clients'),
     path('client-profile/<int:pk>/', views.ClientRetrieveUpdate.as_view(), name='client-profile'),
     path('accessories/', views.AccessoryList.as_view(), name='accessories'),
+    path('complements/', views.ComplementsList.as_view(), name='complements'),
 ]
 
 urlpatterns = format_suffix_patterns(urlpatterns)

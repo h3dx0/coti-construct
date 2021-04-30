@@ -1,7 +1,7 @@
 from django.contrib import admin
 
 # Register your models here.
-from coti.models import TInstallation, TColor, TPresentation, TPayment, Seller, Profile, Frame, Accessory
+from coti.models import TInstallation, TColor, TPresentation, TPayment, Seller, Profile, Frame, Accessory, Complement
 
 
 class SellerAdmin(admin.ModelAdmin):
@@ -28,3 +28,4 @@ admin.site.register(Seller, SellerAdmin)
 admin.site.register(Profile, ProfileAdmin)
 admin.site.register(Frame, FrameAdmin)
 admin.site.register(Accessory, AccessoryAdmin)
+admin.site.register(Complement)

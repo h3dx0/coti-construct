@@ -7,10 +7,10 @@ from rest_framework.generics import ListAPIView, ListCreateAPIView, RetrieveUpda
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 
-from coti.models import TColor, TInstallation, TPayment, Client, Accessory
+from coti.models import TColor, TInstallation, TPayment, Client, Accessory, Complement
 from coti.permissions import BearerTokenAuth
 from coti.serializers import TColorSerializer, TInstallationSerializer, TPaymentSerializer, ClientSerializer, \
-    AccessorySerializer
+    AccessorySerializer, ComplementsSerializer
 
 
 class ClientListCreate(ListCreateAPIView):
@@ -93,5 +93,12 @@ class AccessoryList(ListAPIView):
     serializer_class = AccessorySerializer
     filter_backends = [DjangoFilterBackend]
     filterset_fields = ['profile']
+    authentication_classes = [BearerTokenAuth]
+    permission_classes = [IsAuthenticated]
+
+
+class ComplementsList(ListAPIView):
+    queryset = Complement.objects.all()
+    serializer_class = ComplementsSerializer
     authentication_classes = [BearerTokenAuth]
     permission_classes = [IsAuthenticated]
